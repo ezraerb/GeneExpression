@@ -1,0 +1,36 @@
+This file describes GeneExpression, a program for plotting genes grouped by corrolation, the similiarity of expression behavior. It plots both a corrollogram and a dendrogram tree of the gene groupings
+
+Copyright (C) 2013   Ezra Erb
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+I'd appreciate a note if you find this program useful or make updates. Please contact me through LinkedIn or github (my profile also has a link to the code depository)
+
+This program clusters genes based on similarity of expression patterns. The 
+result is output by both a dendrogram tree and a corrolations matrix. It uses 
+relative changes in expression levels for the clustering so large absolute 
+values do not skew the results. The clustering itself is done by average link 
+clustering on the Euler difference of the expression values. 
+
+The input file must consist only of gene names and expression values, seperated
+by spaces or line ends. Genes with missing expression values are flagged and 
+will cause the file to be rejected. Duplicate gene names will cause the
+clustering to fail. Genes whose expression values do not vary beyond the error
+tolerance will be filtered out of the results.
+
+The correlogram is output as a heat map, with brighter color meaning higher 
+corrolation value (and a lower Euler distance). Genes groups with the highest
+corrolation, as given by the dendrogram, are given the same color in the 
+output.
+
+Installation instructions:
+1. Create a directory.
+2. Create the subdirectory 'data'
+3. Download files to the directory. 
+4. Compile files with 'javac GeneExpression.java'
+5. Place gene data to cluster in the data directory.
+6. Run the program as 'java GeneExpression [file name to process]'
